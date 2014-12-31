@@ -1,6 +1,10 @@
-# Compile with:
-# nim -d:release --gcc.exe:icc --gcc.linkerexe:icc --passC:-O3 --passC:-fopenmp --passC:-mmic --passL:-fopenmp --passL:-mmic c helloflops
+# For the Xeon Phi compile with:
+# nim -d:release --gcc.exe:icc --gcc.linkerexe:icc --passC:-mmic --passL:-mmic c helloflops
+
 import times
+
+{.passl: "-fopenmp".}
+{.passc: "-fopenmp".}
 
 proc omp_get_num_threads(): int {.header: "<omp.h>".}
 proc omp_set_num_threads(int) {.header: "<omp.h>".}
