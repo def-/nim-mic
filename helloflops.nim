@@ -7,7 +7,7 @@ import times
 {.passc: "-fopenmp".}
 
 proc omp_get_num_threads(): int {.header: "<omp.h>".}
-proc omp_set_num_threads(int) {.header: "<omp.h>".}
+proc omp_set_num_threads(x: int) {.header: "<omp.h>".}
 
 const
   flopsArraySize = 1024*1024
